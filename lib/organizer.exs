@@ -1,6 +1,6 @@
 defmodule Organizer fo
 
-  def opganize() do
+  def organize() do
     
   end
 
