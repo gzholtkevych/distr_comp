@@ -18,7 +18,15 @@ Here, $\mathop{\mathrm{neighbors}^+}:\mathbb P\to2^{\mathbb P_n}$ is the least f
 
 ## How to build $\mathop{\mathrm{neighbors}^+}$
 
+One can use the following method to build the function $\mathop{\mathrm{neighbors}^+}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
 
+**Require:** the function $\mathop{\mathrm{neighbors}}$ and $p\in\mathbb P_n$.<br/>
+**Ensure:** the set $\mathop{\mathrm{neighbors}^+}(p)$.
+
+>1. $R\gets\\\{p\\}$
+>2. $N\gets R\cup\\{q\in\mathbb P_n\setminus R\mid q\in\mathop{\mathrm{neighbors}}(p')\text{ for some }p'\in R\\}$
+>3. if $N\neq R$ then $R\gets N$ and jump to 2
+>4. the result is $R\setminus\\{p\\}$
 
 # Realization
 
