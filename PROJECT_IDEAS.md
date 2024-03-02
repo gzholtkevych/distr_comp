@@ -1,9 +1,19 @@
 # Concepts
 
-A distributed algorithm is a complex of $n>1$ isolated local processes, whose set is denoted by $\mathbb P_n$, and a communication subsystem that provides the communication of the processes by message exchanging only.
+A distributed algorithm is a complex of $n>1$ isolated local processes, whose set is denoted by $\mathbb P_n$, and a communication subsystem that provides the interaction of the processes by message exchanging only.
 
 Each process can send a message to some non-empty subset of other processes and this subset does not equal $\mathbb P_n$ in general.
 So, a function $\mathop{\mathrm{neighbors}}:\mathbb P_n\to2^{\mathbb P_n}$ that associates such a subset with each process is needed.
+
+The function $\mathop{\mathrm{neighbors}}$ should satisfy the following natural constraints.
+
+1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
+2. $q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$.
+
+Here, $\mathop{\mathrm{neighbors}^+}:\mathbb P\to2^{\mathbb P_n}$ is the least function that satisfies the following conditions
+
+* $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$;
+* $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{neighbors}^+}(p')\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,p',q\in\mathbb P_n$.
 
 # Realization
 
