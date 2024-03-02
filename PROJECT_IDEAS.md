@@ -16,6 +16,10 @@ Here, $\mathop{\mathrm{neighbors}^+}:\mathbb P\to2^{\mathbb P_n}$ is the least f
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{neighbors}^+}(p')\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,p',q\in\mathbb P_n$.
 
+## How to build $\mathop{\mathrm{neighbors}^+}$
+
+
+
 # Realization
 
 Local processes of a distributed algorithm are identified with positive natural numbers lying in the diapason from 1 to $n$ (the number of the local processes).
