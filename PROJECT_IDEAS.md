@@ -12,6 +12,7 @@ The function $\mathop{\mathrm{neighbors}}$ should satisfy the following natural 
 
 Here, $\mathop{\mathrm{neighbors}^+}:\mathbb P\to2^{\mathbb P_n}$ is the least function that satisfies the following conditions
 
+* $p\notin\mathop{\mathrm{neighbors}^+}(p)$ for any $p\in\mathbb P_n$;
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{neighbors}^+}(p')\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,p',q\in\mathbb P_n$.
 
