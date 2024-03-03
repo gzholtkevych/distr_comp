@@ -8,25 +8,29 @@ So, a function $\mathop{\mathrm{neighbors}}:\mathbb P_n\to2^{\mathbb P_n}$ that 
 The function $\mathop{\mathrm{neighbors}}$ should satisfy the following natural constraints.
 
 1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
-2. $q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$.
+2. $q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$.
 
-Here, $\mathop{\mathrm{neighbors}^+}:\mathbb P\to2^{\mathbb P_n}$ is the least function that satisfies the following conditions
+Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least function that satisfies the following conditions
 
-* $p\notin\mathop{\mathrm{neighbors}^+}(p)$ for any $p\in\mathbb P_n$;
-* $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,q\in\mathbb P_n$;
-* $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{neighbors}^+}(p')\Rightarrow q\in\mathop{\mathrm{neighbors}^+}(p)$ for any $p,p',q\in\mathbb P_n$.
+* $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
+* $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
 
-## How to build $\mathop{\mathrm{neighbors}^+}$
+Constraint (1) forbids sending a message to itself, and constraint (2) guarantees the possibility of delivering a message between any two processes.
 
-One can use the following method to build the function $\mathop{\mathrm{neighbors}^+}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
+## How to build $\mathop{\mathrm{delivery}}$
+
+One can use the following method to build the function $\mathop{\mathrm{delivery}}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
 
 **Require:** the function $\mathop{\mathrm{neighbors}}$ and $p\in\mathbb P_n$.<br/>
-**Ensure:** the set $\mathop{\mathrm{neighbors}^+}(p)$.
+**Ensure:** the set $\mathop{\mathrm{delivery}}(p)$.
 
 >1. $R\gets\\\{p\\}$
 >2. $N\gets R\cup\\{q\in\mathbb P_n\setminus R\mid q\in\mathop{\mathrm{neighbors}}(p')\text{ for some }p'\in R\\}$
 >3. if $N\neq R$ then $R\gets N$ and jump to 2
->4. the result is $R\setminus\\{p\\}$
+>4. the result is $R$
+
+**Proposition.**
+If a function $f:\mathbb P_n\to2^{\mathbb P_n}$ satisfies the constraint $p\notin f(p)$ for any $p\in\mathbb P_n$ then 
 
 # Realization
 
