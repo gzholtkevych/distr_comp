@@ -30,7 +30,8 @@ One can use the following method to build the function $\mathop{\mathrm{delivery
 >4. the result is $R$
 
 **Proposition.**
-If a function $f:\mathbb P_n\to2^{\mathbb P_n}$ satisfies the constraint $p\notin f(p)$ for any $p\in\mathbb P_n$ then 
+For a function $f:\mathbb P_n\to2^{\mathbb P_n}$, the function $f^+:\mathbb P_n\to2^{\mathbb P_n}$ obtained by using the described above method, satisfies the condition
+$$\forall\ p,q,r\in\mathbb P_n,\ q\in f^+(p)\Rightarrow r\in f^+(q)\Rightarrow r\in f^+(p).$$
 
 # Realization
 
