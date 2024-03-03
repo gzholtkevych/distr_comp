@@ -24,8 +24,6 @@ Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least func
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
 
-<details><summary>More details</summary>
-
 ### How to build $\mathop{\mathrm{delivery}}$
 
 One can use the following method to build the function $\mathop{\mathrm{delivery}}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
@@ -37,6 +35,8 @@ One can use the following method to build the function $\mathop{\mathrm{delivery
 >2. $N\gets R\cup\\{q\in\mathbb P_n\setminus R\mid q\in f(p')\text{ for some }p'\in R\\}$
 >3. if $N\neq R$ then $R\gets N$ and jump to 2
 >4. the result is $R$
+
+<details><summary><i>Why is this building method correct?</i></summary>
 
 **Proposition.**
 The described above method has no infinite loop.<br/>
