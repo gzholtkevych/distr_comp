@@ -1,11 +1,20 @@
 # Concepts
 
-A distributed algorithm is a complex of $n>1$ isolated local processes, whose set is denoted by $\mathbb P_n$, and a communication subsystem that provides the interaction of the processes by message exchanging only.
+A distributed algorithm is a complex of at least two isolated local processes interacting with one another by exchanging only messages and a communication subsystem providing this interaction.
 
-Each process can send a message to some non-empty subset of other processes and this subset does not equal $\mathbb P_n$ in general.
+## Local Processes and Their Interaction
+
+Under building models of local processes, the following modeling presumptions are used.
+
+1. Each local process of a distributed algorithm is uniquely identified by some natural number called its logical identifier.
+2. The set of local processes does not change during performing the computational process specified by a distributed algorithm and is denoted by $\mathbb P_n$ where $n$ is the number of local processes.
+3. The set of logical identifiers of $\mathbb P_n$ equals $\\{1, 2,\ldots,n\\}$.
+4. Each process can send a message to some non-empty subset of other processes and this subset does not equal $\mathbb P_n$ in general.
 So, a function $\mathop{\mathrm{neighbors}}:\mathbb P_n\to2^{\mathbb P_n}$ that associates such a subset with each process is needed.
+5. It is not possible to send messages to yourself.
+6. For any $p,q\in\mathbb P_n$, information from $p$ to $q$ can be delivered by a sequence of message exchanging between neighbor processes always.
 
-The function $\mathop{\mathrm{neighbors}}$ should satisfy the following natural constraints.
+More formally, the presumptions (5) and (6) are represented by the following constraints for the function $\mathop{\mathr{neighbors}}$.
 
 1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
 2. $q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$.
@@ -15,9 +24,7 @@ Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least func
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
 
-Constraint (1) forbids sending a message to itself, and constraint (2) guarantees the possibility of delivering a message between any two local processes.
-
-## How to build $\mathop{\mathrm{delivery}}$
+### How to build $\mathop{\mathrm{delivery}}$
 
 One can use the following method to build the function $\mathop{\mathrm{delivery}}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
 
@@ -42,9 +49,32 @@ It means that $N=R$ at this step and, therefore, the loop terminates.
 For a function $f:\mathbb P_n\to2^{\mathbb P_n}$, the function $f^+:\mathbb P_n\to2^{\mathbb P_n}$ obtained by using the described above method, satisfies the condition
 $$\forall\ p,q,r\in\mathbb P_n,\ q\in f^+(p)\Rightarrow r\in f^+(q)\Rightarrow r\in f^+(p).$$
 
-# Realization
+### Realization
 
 Local processes of a distributed algorithm are identified with positive natural numbers lying in the diapason from 1 to $n$ (the number of the local processes).
 
 A list of lists of positive integers models the function $\mathop{\mathrm{neighbors}}$. In such a list, the list located at the $k$-th place identifies neighbors of the process with the logical identifier equals $k+1$.
 Thus, each inner list contains numbers from the diapason from 1 to $n$.
+
+**Example.**
+This communication graph
+
+```mermaid
+graph LR
+  1 --- 4;
+  2 --- 3;
+  3 --- 4;
+  4 --- 5;
+  1 --- 2;
+  1 --- 3;
+```
+is represented by the YAML-file with the next content
+
+```
+neighborhood:
+  - [2, 3, 4]
+  - [1, 3]
+  - [1, 2, 4]
+  - [1, 3, 5]
+  - [4]
+```
