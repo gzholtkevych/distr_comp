@@ -15,7 +15,7 @@ Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least func
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
 
-Constraint (1) forbids sending a message to itself, and constraint (2) guarantees the possibility of delivering a message between any two processes.
+Constraint (1) forbids sending a message to itself, and constraint (2) guarantees the possibility of delivering a message between any two local processes.
 
 ## How to build $\mathop{\mathrm{delivery}}$
 
