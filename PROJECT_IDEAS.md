@@ -24,6 +24,8 @@ Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least func
 * $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
 * $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
 
+<details><summary>More details</summary>
+
 ### How to build $\mathop{\mathrm{delivery}}$
 
 One can use the following method to build the function $\mathop{\mathrm{delivery}}$ that corresponds to function $\mathop{\mathrm{neighbors}}$.
@@ -48,6 +50,8 @@ It means that $N=R$ at this step and, therefore, the loop terminates.
 **Proposition.**
 For a function $f:\mathbb P_n\to2^{\mathbb P_n}$, the function $f^+:\mathbb P_n\to2^{\mathbb P_n}$ obtained by using the described above method, satisfies the condition
 $$\forall\ p,q,r\in\mathbb P_n,\ q\in f^+(p)\Rightarrow r\in f^+(q)\Rightarrow r\in f^+(p).$$
+
+</details>
 
 ### Realization
 
