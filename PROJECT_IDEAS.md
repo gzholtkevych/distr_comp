@@ -14,7 +14,7 @@ So, a function $\mathop{\mathrm{neighbors}}:\mathbb P_n\to2^{\mathbb P_n}$ that 
 5. It is not possible to send messages to yourself.
 6. For any $p,q\in\mathbb P_n$, information from $p$ to $q$ can be delivered by a sequence of message exchanging between neighbor processes always.
 
-More formally, the presumptions (5) and (6) are represented by the following constraints for the function $\mathop{\mathr{neighbors}}$.
+More formally, the presumptions (5) and (6) are represented by the following constraints for the function $\mathop{\mathrm{neighbors}}$.
 
 1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
 2. $q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$.
@@ -55,7 +55,7 @@ $$\forall\ p,q,r\in\mathbb P_n,\ q\in f^+(p)\Rightarrow r\in f^+(q)\Rightarrow r
 
 ### Realization
 
-Local processes of a distributed algorithm are identified with positive natural numbers lying in the diapason from 1 to $n$ (the number of the local processes).
+Local processes of a distributed algorithm are identified with positive natural numbers lying in the range from 1 to $n$ (the number of the local processes).
 
 A list of lists of positive integers models the function $\mathop{\mathrm{neighbors}}$. In such a list, the list located at the $k$-th place identifies neighbors of the process with the logical identifier equals $k+1$.
 Thus, each inner list contains numbers from the diapason from 1 to $n$.
