@@ -33,8 +33,8 @@ This operator is evidently monotonic and due to Knaster–Tarski theorem, for an
 
 Now, we can rigorously formulate constraints for admissible functions $\mathop{\mathrm{neighbor}}$:
 
-1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
-2. for any $p\in\mathbb P_n$, the least fixed point $T_p$ of the operator associated with $\mathop{\mathrm{neighbor}}$ such that $\\{p\\}\subset T_p$ equals $\mathbb P_n$.
+>1. $p\notin\mathop{\mathrm{neighbor}}(p)$ for any $p\in\mathbb P_n$;
+>2. for any $p\in\mathbb P_n$, the least fixed point $T_p$ of the operator associated with $\mathop{\mathrm{neighbor}}$ such that $\\{p\\}\subset T_p$ equals $\mathbb P_n$.
 
 ### How to build $\mathop{\mathrm{delivery}}$
 
