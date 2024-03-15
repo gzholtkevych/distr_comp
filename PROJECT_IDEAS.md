@@ -1,28 +1,40 @@
 # Concepts
 
-A distributed algorithm is a complex of at least two isolated local processes interacting with one another by exchanging only messages and a communication subsystem providing this interaction.
+A distributed computation is a complex consisting
 
-## Local Processes and Their Interaction
+- of at least two isolated local processes interacting with one another by exchanging only messages and
+- of a communication subsystem providing this interaction.
 
-Under building models of local processes, the following modeling presumptions are used.
+## Local processes
 
-1. Each local process of a distributed algorithm is uniquely identified by some natural number called its logical identifier.
-2. The set of local processes does not change during performing the computational process specified by a distributed algorithm and is denoted by $\mathbb P_n$ where $n$ is the number of local processes.
-3. The set of logical identifiers of $\mathbb P_n$ equals $\\{1, 2,\ldots,n\\}$.
-4. Each process can send a message to some non-empty subset of other processes and this subset does not equal $\mathbb P_n$ in general.
-So, a function $\mathop{\mathrm{neighbors}}:\mathbb P_n\to2^{\mathbb P_n}$ that associates such a subset with each process is needed.
-5. It is not possible to send messages to yourself.
-6. For any $p,q\in\mathbb P_n$, information from $p$ to $q$ can be delivered by a sequence of message exchanging between neighbor processes always.
+We assume that
 
-More formally, the presumptions (5) and (6) are represented by the following constraints for the function $\mathop{\mathrm{neighbors}}$.
+>each local process of a distributed computation is performed sequentially, identified by a natural number from the diapason $1\ldots n$ where $n>2$ is the fixed number of the distributed computation local processes.
+To refer to the set of these local processes we use the notation $\mathbb P_n$.
+
+## Local processes interaction
+
+Regarding local process interaction, we assume
+
+>1. each local process is associated with some non-empty subset of other local processes called its neighbors.
+The process can send a message directly to neighbors only.
+The subset of neighbors of $p\in\mathbb P_n$ does not equal $\mathbb P_n$ as a rule and it is referred to as $\mathop{\mathrm{neighbor}}(p)$.
+>2. Regarding to $\\{\mathop{\mathrm{neighbor}}(p)\subset\mathbb P_n\mid p\in\mathbb P_n\\}$ ia assumed the following
+>    - any process can send no message to itself;
+>    - a piece of information can be delivered from any local process to any other local process with a sequence of direct message exchanges.  
+
+## Constraints for $\mathop{\mathrm{neighbor}}$
+
+Let us associate with a function $f:\mathbb P_n\to2^{\mathbb P_n}$ the following operator $F:2^{\mathbb P_n}\to2^{\mathbb P_n}$
+
+$$F(A)=A\cup\\{q\in\mathbb P_n\mid q\in f(p)\text{ for some $p\in A$}\\}.$$
+
+This operator is evidently monotonic and due to Knaster–Tarski theorem, for any $A\subset\mathbb P_n$, it has the least fixed point $T$ such that $A\subset T$.
+
+Now, we can rigorously formulate constraints for admissible functions $\mathop{\mathrm{neighbor}}$:
 
 1. $p\notin\mathop{\mathrm{neighbors}}(p)$ for any $p\in\mathbb P_n$;
-2. $q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$.
-
-Here, $\mathop{\mathrm{delivery}}:\mathbb P\to2^{\mathbb P_n}$ is the least function that satisfies the following conditions
-
-* $q\in\mathop{\mathrm{neighbors}}(p)\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,q\in\mathbb P_n$;
-* $p'\in\mathop{\mathrm{neighbors}}(p)\land q\in\mathop{\mathrm{delivery}}(p')\Rightarrow q\in\mathop{\mathrm{delivery}}(p)$ for any $p,p',q\in\mathbb P_n$.
+2. for any $p\in\mathbb P_n$, the least fixed point $T_p$ of the operator associated with $\mathop{\mathrm{neighbor}}$ such that $\\{p\\}\subset T_p$ equals $\mathbb P_n$.
 
 ### How to build $\mathop{\mathrm{delivery}}$
 
