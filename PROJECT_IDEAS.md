@@ -65,3 +65,5 @@ neighborhood:
   - [1, 3, 5]
   - [4]
 ```
+**Task.**
+Realize utilities checking the constraints for $\mathop{\mathrm{neighbor}}$.
