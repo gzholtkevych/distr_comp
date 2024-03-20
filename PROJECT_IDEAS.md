@@ -36,7 +36,7 @@ Now, we can rigorously formulate constraints for admissible functions $\mathop{\
 >1. $p\notin\mathop{\mathrm{neighbor}}(p)$ for any $p\in\mathbb P_n$;
 >2. for any $p\in\mathbb P_n$, the least fixed point $T_p$ of the operator associated with $\mathop{\mathrm{neighbor}}$ such that $\\{p\\}\subset T_p$ equals $\mathbb P_n$.
 
-## Realization
+# Realization
 
 Local processes of a distributed сщьзгефешщт are identified with positive natural numbers lying in the range from 1 to $n$ (the number of the local processes).
 
